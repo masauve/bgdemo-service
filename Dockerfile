@@ -1,6 +1,4 @@
 FROM registry.redhat.io/ubi8/php-74
-COPY * /opt/app-root/src
-USER root
-RUN chmod -R 777 /opt/app-root/src
-USER 1001
-CMD httpd -D FOREGROUND
+COPY . /opt/app-root/src
+EXPOSE 8080
+CMD /bin/bash -c 'php -S 0.0.0.0:8080'
